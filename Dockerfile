@@ -1,6 +1,6 @@
 FROM        tomcat:8.0.21-jre7 
 
-MAINTAINER Danilo Trani Recchia <danilo@deltatecnologia.com> 
+MAINTAINER Arsen Serkilov
 
 ENV JAVA_OPTS -Xms256m -Xmx1024m -XX:MaxPermSize=256m
 ENV NEWRELIC_KEY 1234567890
@@ -13,7 +13,7 @@ RUN         apt-get update && apt-get install -y \
 RUN	   ln -sf /usr/local/tomcat/webapps /webapps && \
 		rm -rf /webapps/examples && \
 		rm -rf /webapps/docs && \
-		wget -q "http://download.newrelic.com/newrelic/java-agent/newrelic-agent/3.15.0/newrelic-java-3.15.0.zip" -O /tmp/newrelic.zip && \
+		wget -q "https://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip" -O /tmp/newrelic.zip && \
 		unzip /tmp/newrelic.zip -d /usr/local/tomcat/ && \
 		rm /tmp/newrelic.zip && \
 		cd /usr/local/tomcat/newrelic && \
